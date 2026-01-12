@@ -4,6 +4,7 @@ Use this to add new Q&A pairs to the knowledge base
 """
 from voice_agent import VoiceAgent
 import json
+import os
 
 
 def load_training_data(file_path: str):

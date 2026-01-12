@@ -78,7 +78,7 @@ class TextToSpeech:
         
         Args:
             text: Text to convert to speech
-            filename: Output file path
+            filename: Output file path (will be validated for security)
             language: Language code (en for English, ar for Arabic)
             slow: Whether to speak slowly
             
@@ -90,6 +90,15 @@ class TextToSpeech:
             return False
         
         try:
+            # Validate and normalize the path to prevent directory traversal
+            normalized_path = os.path.abspath(filename)
+            base_dir = os.path.abspath(os.getcwd())
+            
+            # Ensure the path is within the project directory
+            if not normalized_path.startswith(base_dir):
+                logger.error(f"Invalid path: {filename} is outside project directory")
+                return False
+            
             # Map language codes to gTTS codes
             lang_map = {
                 'en': 'en',
@@ -99,11 +108,14 @@ class TextToSpeech:
             
             logger.info(f"Generating speech file in {language}: {filename}")
             
+            # Create directory if it doesn't exist
+            os.makedirs(os.path.dirname(normalized_path), exist_ok=True)
+            
             # Generate speech
             tts = gTTS(text=text, lang=lang_code, slow=slow)
-            tts.save(filename)
+            tts.save(normalized_path)
             
-            logger.info(f"Speech saved to {filename}")
+            logger.info(f"Speech saved to {normalized_path}")
             return True
         except Exception as e:
             logger.error(f"Error during speech synthesis: {e}")
