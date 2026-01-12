@@ -86,6 +86,32 @@ def train_agent_interactive():
         print("\nNo Q&A pairs added. Training cancelled.")
 
 
+def validate_file_path(file_path: str) -> bool:
+    """
+    Validate file path to prevent directory traversal attacks
+    
+    Args:
+        file_path: Path to validate
+        
+    Returns:
+        True if path is valid, False otherwise
+    """
+    try:
+        # Normalize and get absolute path
+        abs_path = os.path.abspath(file_path)
+        base_dir = os.path.abspath(os.getcwd())
+        
+        # Check if path is within project directory or is an absolute path to a readable file
+        if abs_path.startswith(base_dir) or os.path.isfile(abs_path):
+            return True
+        else:
+            print(f"Error: Path '{file_path}' is not accessible or outside project directory")
+            return False
+    except Exception as e:
+        print(f"Error validating path: {e}")
+        return False
+
+
 def main():
     """Main function"""
     import sys
@@ -93,7 +119,11 @@ def main():
     if len(sys.argv) > 1:
         # Train from file
         file_path = sys.argv[1]
-        train_agent_from_file(file_path)
+        if validate_file_path(file_path):
+            train_agent_from_file(file_path)
+        else:
+            print("Invalid file path. Exiting.")
+            sys.exit(1)
     else:
         # Interactive training
         print("\nTraining Mode:")
@@ -104,7 +134,11 @@ def main():
         
         if choice == '1':
             file_path = input("Enter path to training data file: ").strip()
-            train_agent_from_file(file_path)
+            if validate_file_path(file_path):
+                train_agent_from_file(file_path)
+            else:
+                print("Invalid file path. Exiting.")
+                sys.exit(1)
         elif choice == '2':
             train_agent_interactive()
         else:

@@ -7,6 +7,7 @@ from pydub import AudioSegment
 from pydub.playback import play
 import os
 import tempfile
+import uuid
 import logging
 from typing import Optional
 
@@ -52,7 +53,6 @@ class TextToSpeech:
             tts = gTTS(text=text, lang=lang_code, slow=slow)
             
             # Save to temporary file with unique name to avoid race conditions
-            import uuid
             temp_file = os.path.join(self.temp_dir, f'voice_agent_output_{uuid.uuid4().hex}.mp3')
             tts.save(temp_file)
             
