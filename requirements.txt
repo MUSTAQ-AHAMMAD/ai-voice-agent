@@ -1,0 +1,68 @@
+# Core AI and NLP libraries
+openai-whisper==20231117
+transformers==4.36.0
+sentence-transformers==2.2.2
+torch>=2.0.0
+numpy>=1.24.0
+
+# Vector database for Q&A retrieval
+faiss-cpu==1.7.4
+langchain==0.1.0
+langchain-community==0.0.13
+
+# Text-to-Speech
+gTTS==2.4.0
+pyttsx3==2.90
+
+# Speech-to-Text
+SpeechRecognition==3.10.1
+pyaudio>=0.2.13
+
+# Audio processing
+pydub==0.25.1
+soundfile==0.12.1
+librosa==0.10.1
+
+# Language processing
+transformers>=4.35.0
+sentence-transformers>=2.2.2
+torch>=2.0.0
+
+# Vector database for Q&A
+faiss-cpu==1.7.4
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# OpenAI for advanced capabilities (optional)
+openai>=1.0.0
+
+# Text-to-Speech
+gTTS>=2.4.0
+pydub>=0.25.1
+
+# Speech-to-Text
+SpeechRecognition>=3.10.0
+pyaudio>=0.2.13
+
+# Multilingual support
+deep-translator>=1.11.4
+langdetect>=1.0.9
+
+# Vector database for Q&A
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2
+
+# NLP and AI libraries
+transformers>=4.30.0
+torch>=2.0.0
+openai>=1.0.0
+
+# Audio processing
+sounddevice>=0.4.6
+soundfile>=0.12.1
+pydub>=0.25.1
+
+# Additional utilities
+numpy>=1.24.0
+python-dotenv>=1.0.0
+langdetect>=1.0.9
