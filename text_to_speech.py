@@ -51,8 +51,9 @@ class TextToSpeech:
             # Generate speech
             tts = gTTS(text=text, lang=lang_code, slow=slow)
             
-            # Save to temporary file
-            temp_file = os.path.join(self.temp_dir, 'voice_agent_output.mp3')
+            # Save to temporary file with unique name to avoid race conditions
+            import uuid
+            temp_file = os.path.join(self.temp_dir, f'voice_agent_output_{uuid.uuid4().hex}.mp3')
             tts.save(temp_file)
             
             # Play the audio

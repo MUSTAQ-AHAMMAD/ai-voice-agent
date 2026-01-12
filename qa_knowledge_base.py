@@ -59,8 +59,17 @@ class QAKnowledgeBase:
     def save_qa_database(self):
         """Save Q&A pairs to JSON file"""
         try:
-            os.makedirs(os.path.dirname(self.qa_database_path), exist_ok=True)
-            with open(self.qa_database_path, 'w', encoding='utf-8') as f:
+            # Validate and normalize the path to prevent directory traversal
+            normalized_path = os.path.abspath(self.qa_database_path)
+            base_dir = os.path.abspath(os.getcwd())
+            
+            # Ensure the path is within the project directory
+            if not normalized_path.startswith(base_dir):
+                logger.error(f"Invalid path: {self.qa_database_path} is outside project directory")
+                return
+            
+            os.makedirs(os.path.dirname(normalized_path), exist_ok=True)
+            with open(normalized_path, 'w', encoding='utf-8') as f:
                 json.dump({'qa_pairs': self.qa_pairs}, f, ensure_ascii=False, indent=2)
             logger.info(f"Saved {len(self.qa_pairs)} Q&A pairs to database.")
         except Exception as e:
@@ -92,17 +101,36 @@ class QAKnowledgeBase:
             return
         
         index_file = os.path.join(self.vector_db_path, 'faiss.index')
+        metadata_file = os.path.join(self.vector_db_path, 'index_metadata.json')
         
         try:
-            # Try to load existing index
-            if os.path.exists(index_file):
-                logger.info("Loading existing FAISS index...")
-                self.index = faiss.read_index(index_file)
-                logger.info("FAISS index loaded successfully.")
+            # Check if index exists and is up-to-date
+            should_rebuild = False
+            
+            if os.path.exists(index_file) and os.path.exists(metadata_file):
+                # Load metadata to check if index matches current Q&A data
+                with open(metadata_file, 'r') as f:
+                    metadata = json.load(f)
+                
+                # Compare number of Q&A pairs and questions
+                current_questions = [qa['question'] for qa in self.qa_pairs]
+                stored_count = metadata.get('qa_count', 0)
+                
+                if stored_count != len(self.qa_pairs):
+                    logger.info("Q&A count changed, rebuilding index...")
+                    should_rebuild = True
+                else:
+                    logger.info("Loading existing FAISS index...")
+                    self.index = faiss.read_index(index_file)
+                    logger.info("FAISS index loaded successfully.")
             else:
+                should_rebuild = True
+            
+            if should_rebuild:
                 logger.info("Building new FAISS index...")
                 self._build_index()
                 logger.info("FAISS index built successfully.")
+                
         except Exception as e:
             logger.error(f"Error with FAISS index: {e}. Rebuilding...")
             self._build_index()
@@ -124,10 +152,22 @@ class QAKnowledgeBase:
         self.index = faiss.IndexFlatL2(dimension)
         self.index.add(embeddings.astype('float32'))
         
-        # Save index
+        # Save index and metadata
         os.makedirs(self.vector_db_path, exist_ok=True)
         index_file = os.path.join(self.vector_db_path, 'faiss.index')
+        metadata_file = os.path.join(self.vector_db_path, 'index_metadata.json')
+        
         faiss.write_index(self.index, index_file)
+        
+        # Save metadata for validation
+        metadata = {
+            'qa_count': len(self.qa_pairs),
+            'dimension': dimension,
+            'questions': questions[:5]  # Store first 5 questions as sample for debugging
+        }
+        with open(metadata_file, 'w', encoding='utf-8') as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
+        
         logger.info(f"FAISS index saved to {index_file}")
     
     def search(self, query: str, top_k: int = 3, language: Optional[str] = None) -> List[Dict]:
