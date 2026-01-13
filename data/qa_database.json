@@ -1,0 +1,124 @@
+{
+  "qa_pairs": [
+    {
+      "question": "What products do you offer?",
+      "answer": "We offer a wide range of enterprise software solutions including CRM systems, project management tools, and customer support platforms. Would you like to know more about any specific product?",
+      "language": "en",
+      "category": "pre_sales"
+    },
+    {
+      "question": "What are your pricing plans?",
+      "answer": "We have three pricing tiers: Basic at $29 per month, Professional at $79 per month, and Enterprise with custom pricing. Each tier offers different features and support levels.",
+      "language": "en",
+      "category": "pre_sales"
+    },
+    {
+      "question": "Do you offer a free trial?",
+      "answer": "Yes! We offer a 14-day free trial with full access to all features. No credit card is required to start your trial.",
+      "language": "en",
+      "category": "pre_sales"
+    },
+    {
+      "question": "How can I contact sales?",
+      "answer": "You can reach our sales team by email at sales@example.com or call us at 1-800-SALES. We're available Monday through Friday, 9 AM to 6 PM.",
+      "language": "en",
+      "category": "pre_sales"
+    },
+    {
+      "question": "What payment methods do you accept?",
+      "answer": "We accept all major credit cards including Visa, MasterCard, and American Express. We also support PayPal and bank transfers for enterprise customers.",
+      "language": "en",
+      "category": "pre_sales"
+    },
+    {
+      "question": "How do I reset my password?",
+      "answer": "To reset your password, go to the login page and click 'Forgot Password'. Enter your email address, and we'll send you a password reset link within a few minutes.",
+      "language": "en",
+      "category": "post_sales"
+    },
+    {
+      "question": "How can I upgrade my plan?",
+      "answer": "You can upgrade your plan anytime from your account settings. Go to Billing, select your desired plan, and the changes will take effect immediately. You'll only be charged the prorated difference.",
+      "language": "en",
+      "category": "post_sales"
+    },
+    {
+      "question": "How do I cancel my subscription?",
+      "answer": "To cancel your subscription, go to Account Settings, then Billing, and click 'Cancel Subscription'. Your access will continue until the end of your current billing period.",
+      "language": "en",
+      "category": "post_sales"
+    },
+    {
+      "question": "What is your refund policy?",
+      "answer": "We offer a 30-day money-back guarantee. If you're not satisfied with our service, contact our support team within 30 days of purchase for a full refund.",
+      "language": "en",
+      "category": "post_sales"
+    },
+    {
+      "question": "How can I contact support?",
+      "answer": "Our support team is available 24/7. You can reach us via email at support@example.com, through live chat on our website, or by calling our support hotline.",
+      "language": "en",
+      "category": "post_sales"
+    },
+    {
+      "question": "ما هي المنتجات التي تقدمونها؟",
+      "answer": "نقدم مجموعة واسعة من حلول البرمجيات المؤسسية بما في ذلك أنظمة إدارة علاقات العملاء وأدوات إدارة المشاريع ومنصات دعم العملاء. هل ترغب في معرفة المزيد عن أي منتج معين؟",
+      "language": "ar",
+      "category": "pre_sales"
+    },
+    {
+      "question": "ما هي خطط الأسعار لديكم؟",
+      "answer": "لدينا ثلاث مستويات للأسعار: الأساسية بسعر 29 دولارًا شهريًا، والمهنية بسعر 79 دولارًا شهريًا، والمؤسسية بأسعار مخصصة. يقدم كل مستوى ميزات ومستويات دعم مختلفة.",
+      "language": "ar",
+      "category": "pre_sales"
+    },
+    {
+      "question": "هل تقدمون تجربة مجانية؟",
+      "answer": "نعم! نقدم تجربة مجانية لمدة 14 يومًا مع وصول كامل لجميع الميزات. لا حاجة لبطاقة ائتمان لبدء التجربة.",
+      "language": "ar",
+      "category": "pre_sales"
+    },
+    {
+      "question": "كيف يمكنني الاتصال بفريق المبيعات؟",
+      "answer": "يمكنك الوصول إلى فريق المبيعات عبر البريد الإلكتروني على sales@example.com أو الاتصال بنا على الرقم 1-800-SALES. نحن متاحون من الاثنين إلى الجمعة من الساعة 9 صباحًا حتى 6 مساءً.",
+      "language": "ar",
+      "category": "pre_sales"
+    },
+    {
+      "question": "ما هي طرق الدفع التي تقبلونها؟",
+      "answer": "نقبل جميع بطاقات الائتمان الرئيسية بما في ذلك فيزا وماستركارد وأمريكان إكسبريس. كما ندعم باي بال والتحويلات البنكية للعملاء المؤسسيين.",
+      "language": "ar",
+      "category": "pre_sales"
+    },
+    {
+      "question": "كيف يمكنني إعادة تعيين كلمة المرور؟",
+      "answer": "لإعادة تعيين كلمة المرور، انتقل إلى صفحة تسجيل الدخول وانقر على 'نسيت كلمة المرور'. أدخل عنوان بريدك الإلكتروني، وسنرسل لك رابط إعادة تعيين كلمة المرور في غضون دقائق.",
+      "language": "ar",
+      "category": "post_sales"
+    },
+    {
+      "question": "كيف يمكنني ترقية خطتي؟",
+      "answer": "يمكنك ترقية خطتك في أي وقت من إعدادات حسابك. انتقل إلى الفوترة، واختر الخطة المرغوبة، وستسري التغييرات على الفور. سيتم محاسبتك فقط على الفرق المحسوب بشكل تناسبي.",
+      "language": "ar",
+      "category": "post_sales"
+    },
+    {
+      "question": "كيف يمكنني إلغاء اشتراكي؟",
+      "answer": "لإلغاء اشتراكك، انتقل إلى إعدادات الحساب، ثم الفوترة، وانقر على 'إلغاء الاشتراك'. سيستمر وصولك حتى نهاية فترة الفوترة الحالية.",
+      "language": "ar",
+      "category": "post_sales"
+    },
+    {
+      "question": "ما هي سياسة الاسترداد الخاصة بكم؟",
+      "answer": "نقدم ضمان استرداد الأموال لمدة 30 يومًا. إذا لم تكن راضيًا عن خدمتنا، اتصل بفريق الدعم خلال 30 يومًا من الشراء لاسترداد كامل المبلغ.",
+      "language": "ar",
+      "category": "post_sales"
+    },
+    {
+      "question": "كيف يمكنني الاتصال بالدعم؟",
+      "answer": "فريق الدعم لدينا متاح على مدار الساعة طوال أيام الأسبوع. يمكنك الوصول إلينا عبر البريد الإلكتروني على support@example.com، من خلال الدردشة المباشرة على موقعنا، أو عن طريق الاتصال بخط الدعم الساخن.",
+      "language": "ar",
+      "category": "post_sales"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Core AI and NLP libraries
+transformers>=4.36.0
+sentence-transformers>=2.2.2
+torch>=2.0.0
+numpy>=1.24.0
+
+# Vector database for Q&A retrieval
+faiss-cpu>=1.7.4
+
+# Text-to-Speech
+gTTS>=2.4.0
+
+# Speech-to-Text
+SpeechRecognition>=3.10.1
+pyaudio>=0.2.13
+
+# Audio processing
+pydub>=0.25.1
+soundfile>=0.12.1
+
+# Multilingual support
+langdetect>=1.0.9
+
+# Additional utilities
+python-dotenv>=1.0.0
